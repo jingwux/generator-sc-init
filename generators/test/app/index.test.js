@@ -423,8 +423,6 @@ required.addProviderResources([
   'application.properties',
   'application.yml',
   'application-local.yml',
-  'application-dev.yml',
-  'application-qa.yml',
   'application-prod.yml'
 ])
 required.addProviderTestClasses([
