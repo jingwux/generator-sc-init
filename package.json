@@ -1,15 +1,13 @@
 {
-  "name": "generator-deepexi-spring-cloud",
-  "version": "1.19.0",
-  "description": "deepexi spring cloud scaffold tool",
+  "name": "generator-sc-init",
+  "version": "1.0.0",
+  "description": "Spring Cloud Project Quick initialization",
   "files": [
     "generators"
   ],
   "keywords": [
     "yeoman-generator",
-    "scaffold",
     "generator",
-    "deepexi",
     "java",
     "spring cloud",
     "sc"
@@ -54,12 +52,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/deepexi/generator-deepexi-spring-cloud.git"
+    "url": "git+https://github.com/yuanqingx/generator-sc-init.git"
   },
   "bugs": {
-    "url": "https://github.com/deepexi/generator-deepexi-spring-cloud/issues"
+    "url": "https://github.com/yuanqingx/generator-sc-init/issues"
   },
-  "homepage": "https://github.com/deepexi/generator-deepexi-spring-cloud#readme",
-  "author": "taccisum",
+  "homepage": "https://github.com/yuanqingx/generator-sc-init",
+  "author": "jingwu",
   "license": "ISC"
 }

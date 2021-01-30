@@ -4,13 +4,11 @@ node_js:
   - '10'
 cache: npm
 install:
-  - npm i 
+  - npm i
 before_script:
   - npm i nyc mocha -g
 script:
   - npm run cov
 after_success:
   - bash <(curl -s https://codecov.io/bash) -f coverage.lcov
-notifications:
-   webhooks: https://oapi.dingtalk.com/robot/send?access_token=31a3ac1e6c62bb0d1ccbb3f91b23443bf29d2a3db88a93df463332b59695e3dc
- 
+
