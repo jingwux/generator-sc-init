@@ -7,7 +7,7 @@ const xml = require('xml');
 const configurers = require('./configurer/configurers');
 const prettifyXml = require('prettify-xml')
 
-class ProviderPomTemplateHandler extends AbstractTemplateHandler {
+class PomTemplateHandler extends AbstractTemplateHandler {
   _notify (receiver, event, args) {
     return receiver.receive(event, args);
   }
@@ -36,6 +36,6 @@ class ProviderPomTemplateHandler extends AbstractTemplateHandler {
 }
 
 module.exports = {
-  key: 'provider_pom',
-  cls: ProviderPomTemplateHandler
+  key: 'pom',
+  cls: PomTemplateHandler
 };

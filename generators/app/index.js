@@ -5,12 +5,12 @@ const Trigger = require('yo-power-generator').Trigger;
 
 const obj = {
   groupId: {
-    prompting: { type: 'input', message: '请输入你的group id', default: 'com.deepexi' },
-    option: { desc: 'group id', type: String, default: 'com.deepexi' }
+    prompting: { type: 'input', message: '请输入你的group id', default: 'com.example' },
+    option: { desc: 'group id', type: String, default: 'com.example' }
   },
   artifactId: {
-    prompting: { type: 'input', message: '请输入你的artifact id', default: 'deepexi-spring-cloud' },
-    option: { desc: 'artifact id', type: String, default: 'deepexi-spring-cloud' }
+    prompting: { type: 'input', message: '请输入你的artifact id', default: 'example-service' },
+    option: { desc: 'artifact id', type: String, default: 'example-service' }
   },
   basePackage: {
     prompting: { type: 'input', message: '请输入你的基础包路径（为空则使用group id）' },
@@ -24,9 +24,9 @@ const obj = {
     prompting: {
       type: 'list',
       choices: [
-        'thymeleaf',
+        'none',
+        'thymeleaf'
         // 'freemarker',
-        'none'
       ],
       message: '请选择你使用的模板引擎'
     },
@@ -59,8 +59,8 @@ const obj = {
     prompting: {
       type: 'list',
       choices: [
-        'mysql',
-        'none'
+        'none',
+        'mysql'
       ],
       message: '请选择你使用的数据库'
     },
@@ -89,8 +89,8 @@ const obj = {
           choices: [
             { key: 'mybatis-plus', display: 'mybatis plus' },
             // 'mybatis-plus',
-            'mybatis',
-            'none'
+            'none',
+            'mybatis'
           ],
           message: '请选择你使用的ORM框架'
         },
@@ -107,13 +107,13 @@ const obj = {
     prompting: {
       type: 'list',
       choices: [
-        'eureka',
+        'none',
+        'eureka'
         // 'zookeeper',
-        'none'
       ],
       message: '请选择你使用的注册中心类型'
     },
-    option: { desc: '注册中心', type: String, default: 'eureka' },
+    option: { desc: '注册中心', type: String, default: 'none' },
     child: {
       feignCircuit: {
         prompting: {
@@ -138,9 +138,9 @@ const obj = {
     prompting: {
       type: 'list',
       choices: [
-        { key: 'rabbitmq', display: 'rabbit mq' },
+        'none',
+        { key: 'rabbitmq', display: 'rabbit mq' }
         // 'rocketmq',
-        'none'
       ],
       message: '请选择你使用的消息中间件类型'
     },
@@ -150,8 +150,8 @@ const obj = {
     prompting: {
       type: 'list',
       choices: [
-        { key: 'apollo', display: '携程apollo' },
-        'none'
+        'none',
+        { key: 'apollo', display: '携程apollo' }
       ],
       message: '请选择你的配置中心类型'
     },
@@ -161,12 +161,12 @@ const obj = {
     prompting: {
       type: 'list',
       choices: [
-        'jwt',
-        'none'
+        'none',
+        'jwt'
       ],
       message: '请选择你采用的认证机制类型'
     },
-    option: { desc: '认证机制', type: String, default: 'jwt' },
+    option: { desc: '认证机制', type: String, default: 'none' },
     child: {
       jwtIssue: {
         prompting: { type: 'input', default: 'deepexi', message: '请填写你的jwt issue' },
@@ -199,9 +199,9 @@ const obj = {
     prompting: {
       type: 'list',
       choices: [
-        'redis',
+        'none',
+        'redis'
         // 'ehcache',
-        'none'
       ],
       message: '请选择你使用的缓存类型'
     },
@@ -222,9 +222,9 @@ const obj = {
     prompting: {
       type: 'list',
       choices: [
-        'skywalking',
+        'none',
+        'skywalking'
         // 'pinpoint',
-        'none'
       ],
       message: '请选择你使用的APM类型'
     },

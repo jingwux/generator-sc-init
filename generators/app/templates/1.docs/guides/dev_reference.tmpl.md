@@ -53,22 +53,13 @@
 │               ├── META-INF
 │               │   └── spring-devtools.properties      // devtools元数据
 │               ├── application.yml             // 通用配置文件
-│               ├── application-dev.yml         // 开发环境配置文件
 │               ├── application-local.yml       // 本地环境配置文件
 │               ├── application-prod.yml        // 生产环境配置文件
-│               ├── application-qa.yml          // 测试环境配置文件
 │               ├── bootstrap.yml
 │               └── mapper           // mybatis mapper相关
 ├── entrypoint.sh
-├── LICENSE     // 协议信息
-├── commitlint.config.js
-├── common.sh
-├── build.sh        // 项目构建脚本
 ├── filebeat.yml
-├── start-fb.sh     // filebeat启动脚本
-├── scaffold.md     // 脚手架信息
 ├── README.md       // 帮助文档
-├── package.json
 └── pom.xml
 ```
 

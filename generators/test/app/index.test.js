@@ -46,7 +46,7 @@ function assertProviderArtifacts (artifacts) {
   if (_.isArray(artifacts) && artifacts.length > 0) {
     assert.fileContent(
       artifacts.map(artifact => {
-        return ['foo-service-provider/pom.xml', new RegExp('<artifactId>' + artifact + '<\\/artifactId>')];
+        return ['pom.xml', new RegExp('<artifactId>' + artifact + '<\\/artifactId>')];
       })
     )
   }
@@ -56,7 +56,7 @@ function assertNoProviderArtifacts (artifacts) {
   if (_.isArray(artifacts) && artifacts.length > 0) {
     assert.noFileContent(
       artifacts.map(artifact => {
-        return ['foo-service-provider/pom.xml', new RegExp('<artifactId>' + artifact + '<\\/artifactId>')];
+        return ['pom.xml', new RegExp('<artifactId>' + artifact + '<\\/artifactId>')];
       })
     )
   }
@@ -65,7 +65,7 @@ function assertNoProviderArtifacts (artifacts) {
 function assertClasses (classes) {
   if (_.isArray(classes) && classes.length > 0) {
     assert.file(classes.map(clazz => {
-      return `foo-service-provider/src/main/java/com/deepexi/foo/${clazz}`;
+      return `src/main/java/com/deepexi/foo/${clazz}`;
     }))
   }
 }
@@ -73,7 +73,7 @@ function assertClasses (classes) {
 function assertNoClasses (classes) {
   if (_.isArray(classes) && classes.length > 0) {
     assert.noFile(classes.map(clazz => {
-      return `foo-service-provider/src/main/java/com/deepexi/foo/${clazz}`;
+      return `src/main/java/com/deepexi/foo/${clazz}`;
     }))
   }
 }
@@ -81,7 +81,7 @@ function assertNoClasses (classes) {
 function assertTestClasses (classes) {
   if (_.isArray(classes) && classes.length > 0) {
     assert.file(classes.map(clazz => {
-      return `foo-service-provider/src/test/java/com/deepexi/foo/${clazz}`;
+      return `src/test/java/com/deepexi/foo/${clazz}`;
     }))
   }
 }
@@ -89,7 +89,7 @@ function assertTestClasses (classes) {
 function assertNoTestClasses (classes) {
   if (_.isArray(classes) && classes.length > 0) {
     assert.noFile(classes.map(clazz => {
-      return `foo-service-provider/src/test/java/com/deepexi/foo/${clazz}`;
+      return `src/test/java/com/deepexi/foo/${clazz}`;
     }))
   }
 }
@@ -97,7 +97,7 @@ function assertNoTestClasses (classes) {
 function assertResources (resources) {
   if (_.isArray(resources) && resources.length > 0) {
     assert.file(resources.map(resource => {
-      return `foo-service-provider/src/main/resources/${resource}`;
+      return `src/main/resources/${resource}`;
     }))
   }
 }
@@ -105,7 +105,7 @@ function assertResources (resources) {
 function assertNoResources (resources) {
   if (_.isArray(resources) && resources.length > 0) {
     assert.noFile(resources.map(resource => {
-      return `foo-service-provider/src/main/resources/${resource}`;
+      return `src/main/resources/${resource}`;
     }))
   }
 }
@@ -113,18 +113,18 @@ function assertNoResources (resources) {
 function readYamlConfigs (env) {
   if (env) {
     if (env === 'bootstrap' || env === 'boot') {
-      return yaml.safeLoad(fs.readFileSync(`foo-service-provider/src/main/resources/bootstrap.yml`)) || { apollo: {} };
+      return yaml.safeLoad(fs.readFileSync(`src/main/resources/bootstrap.yml`)) || { apollo: {} };
     }
-    return yaml.safeLoad(fs.readFileSync(`foo-service-provider/src/main/resources/application-${env}.yml`)) || {};
+    return yaml.safeLoad(fs.readFileSync(`src/main/resources/application-${env}.yml`)) || {};
   }
-  return yaml.safeLoad(fs.readFileSync('foo-service-provider/src/main/resources/application.yml')) || {};
+  return yaml.safeLoad(fs.readFileSync('src/main/resources/application.yml')) || {};
 }
 
 function assertProviderPlugins (artifacts) {
   if (_.isArray(artifacts) && artifacts.length > 0) {
     assert.fileContent(
       artifacts.map(artifact => {
-        return ['foo-service-provider/pom.xml', new RegExp('<artifactId>' + artifact + '<\\/artifactId>')];
+        return ['pom.xml', new RegExp('<artifactId>' + artifact + '<\\/artifactId>')];
       })
     )
   }
@@ -387,8 +387,6 @@ required.addProjectFiles([
   'pom.xml',
   '.gitignore',
   'filebeat.yml',
-  'start-fb.sh',
-  'LICENSE',
   'README.md',
   '1.docs/guides/quickly_start.md',
   '1.docs/guides/reference.md',
@@ -401,10 +399,7 @@ required.addProjectFiles([
   '1.docs/guides/dependencies/others.md',
   '1.docs/sql/v1.0.0/schema.sql',
   '1.docs/sql/v1.0.0/data.sql',
-  '.gitlab-ci.yml',
-  'scaffold.md',
-  'package.json',
-  'commitlint.config.js'
+  '.gitlab-ci.yml'
 ])
 required.addProviderClasses([
   'StartupApplication.java',
@@ -566,7 +561,7 @@ mybatisplus.addProviderClasses([
 mybatisplus.assertContent = () => {
   it('should exist contents', () => {
     assert.fileContent([
-      ['foo-service-provider/src/main/java/com/deepexi/foo/config/ApplicationConfiguration.java', /ApplicationMetaObjectHandler.RuntimeData/]
+      ['src/main/java/com/deepexi/foo/config/ApplicationConfiguration.java', /ApplicationMetaObjectHandler.RuntimeData/]
     ])
   });
 }
@@ -794,7 +789,7 @@ jib.assertJib = function () {
   it('should exist scripts of jib', () => {
     const jibResource = this.getJibResource();
     assert.file(jibResource.map(resource => {
-      return `foo-service-provider/scripts/${resource}`;
+      return `scripts/${resource}`;
     }))
   });
 }
@@ -802,21 +797,19 @@ jib.assertJib = function () {
 const dockerfile = expects.dockerfile;
 dockerfile.addProjectFiles([
   'Dockerfile',
-  'entrypoint.sh',
-  'run.sh',
-  'start-code.sh'
+  'entrypoint.sh'
 ])
 dockerfile.assertContent = () => {
   it('should not exist contents', () => {
     assert.noFileContent([
-      ['foo-service-provider/pom.xml', /docker\.repository/]
+      ['pom.xml', /docker\.repository/]
     ])
   });
 }
 dockerfile.assertNoContent = () => {
   it('should exist contents', () => {
     assert.fileContent([
-      ['foo-service-provider/pom.xml', /docker\.repository/]
+      ['pom.xml', /docker\.repository/]
     ])
   });
 }
@@ -839,7 +832,7 @@ dockerfileMvn.assertProviderFiles = function () {
   it('should exist scripts of provider files', () => {
     const providerFiles = this.getProviderFiles();
     assert.file(providerFiles.map(resource => {
-      return `foo-service-provider/scripts/${resource}`;
+      return `scripts/${resource}`;
     }))
   });
 }
@@ -1135,7 +1128,6 @@ describe('optional dependencies', () => {
         it('should contain content', () => {
           assert.fileContent('entrypoint.sh', /javaagent/)
           assert.fileContent('entrypoint.sh', /skywalking/)
-          assert.fileContent('run.sh', /-e SW_SERVICE_ADDR=/)
         });
       })
 
@@ -1150,7 +1142,6 @@ describe('optional dependencies', () => {
         it('should not contain content', () => {
           assert.noFileContent('entrypoint.sh', /javaagent/)
           assert.noFileContent('entrypoint.sh', /skywalking/)
-          assert.noFileContent('run.sh', /-e SW_SERVICE_ADDR=/)
         });
       })
     });
