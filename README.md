@@ -2,6 +2,8 @@
 
 基于[ generator-deepexi-spring-cloud ](https://github.com/deepexi/generator-deepexi-spring-cloud) 改造
 
+简化了项目结构，调整了依赖的默认选项
+
 [CHANGELOG](./CHANGELOG.md)
 
 ## How To
