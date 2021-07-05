@@ -47,3 +47,8 @@ $ yo sc-init --help
 ```
 
 ## Development Reference
+
+
+## Todo 
+
+基于 新版本 yeoman-generator 重构
