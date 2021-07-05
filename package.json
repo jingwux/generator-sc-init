@@ -1,6 +1,6 @@
 {
   "name": "generator-sc-init",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Spring Cloud Project Quick initialization",
   "files": [
     "generators"
@@ -17,6 +17,7 @@
     "js-yaml": "^3.13.1",
     "moment": "^2.24.0",
     "prettify-xml": "^1.2.0",
+    "shelljs": "^0.8.4",
     "xml": "^1.0.1",
     "yeoman-generator": "^1.1.1",
     "yo-power-generator": "^0.7.1"

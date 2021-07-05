@@ -386,7 +386,6 @@ const required = expects.required;
 required.addProjectFiles([
   'pom.xml',
   '.gitignore',
-  'filebeat.yml',
   'README.md',
   '1.docs/guides/quickly_start.md',
   '1.docs/guides/reference.md',

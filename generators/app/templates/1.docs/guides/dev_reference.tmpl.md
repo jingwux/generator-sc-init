@@ -58,7 +58,6 @@
 │               ├── bootstrap.yml
 │               └── mapper           // mybatis mapper相关
 ├── entrypoint.sh
-├── filebeat.yml
 ├── README.md       // 帮助文档
 └── pom.xml
 ```

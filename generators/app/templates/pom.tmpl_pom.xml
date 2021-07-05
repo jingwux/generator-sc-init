@@ -116,17 +116,6 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-
-            <dependency>
-                <groupId>${groupId}</groupId>
-                <artifactId>${artifactId}-api</artifactId>
-                <%='<version>${project.version}</version>'%>
-            </dependency>
-            <dependency>
-                <groupId>${groupId}</groupId>
-                <artifactId>${artifactId}-provider</artifactId>
-                <%='<version>${project.version}</version>'%>
-            </dependency>
         </dependencies>
     </dependencyManagement>
 
